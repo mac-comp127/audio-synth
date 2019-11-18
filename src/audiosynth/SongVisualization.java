@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SongVisualization extends GraphicsGroup {
-    public static final int MAX_PITCH = 88;
+    public static final int MAX_PITCH = 120;
 
     private final double pixelsPerSecond, pixelsPerSemitone;
     private final double hairlinePosition = 200;
@@ -39,7 +39,7 @@ public class SongVisualization extends GraphicsGroup {
         for (Note note : song.getNotes()) {
             Rectangle rect = new Rectangle(
                 note.getStartTime() * pixelsPerSecond,
-                (88 - note.getPitch()) * pixelsPerSemitone,
+                (MAX_PITCH - note.getPitch()) * pixelsPerSemitone,
                 note.getDuration() * pixelsPerSecond,
                 pixelsPerSemitone);
             rect.setStrokeWidth(0.5);

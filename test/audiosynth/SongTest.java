@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class SongTest {
     private static final double CONCERT_A_WAVELENGTH = AudioBuffer.SAMPLE_RATE / 880.0;
@@ -18,6 +17,12 @@ class SongTest {
     @Test
     void startsEmpty() {
         assertEquals(List.of(), song.getNotes());
+    }
+
+    @Test
+    void notesAreUnmodifiable() {
+        assertThrows(UnsupportedOperationException.class, () ->
+            song.getNotes().add(new Note(instrument0, 0, 0, 0)));
     }
 
     @Test

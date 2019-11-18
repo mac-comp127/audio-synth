@@ -8,14 +8,12 @@ import comp127graphics.Rectangle;
 import java.awt.Color;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 public class SongVisualization extends GraphicsGroup {
     public static final int MAX_PITCH = 88;
 
     private final double pixelsPerSecond, pixelsPerSemitone;
     private final double hairlinePosition = 200;
-    private final Random rand = new Random();
     private final GraphicsGroup noteGroup;
     private final Map<Instrument,Color> instrumentColors = new HashMap<>();
     private final Map<Note,Rectangle> noteVisualizations = new HashMap<>();
@@ -55,7 +53,7 @@ public class SongVisualization extends GraphicsGroup {
         Instrument instrument = note.getInstrument();
         Color color = instrumentColors.get(instrument);
         if (color == null) {
-            color = Color.getHSBColor(rand.nextFloat(), 1, 0.6f);
+            color = Color.getHSBColor(instrumentColors.size() * 0.382f % 1, 1, 0.6f);
             instrumentColors.put(instrument, color);
         }
         return color;

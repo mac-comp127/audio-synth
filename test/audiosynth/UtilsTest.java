@@ -1,0 +1,20 @@
+package audiosynth;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class UtilsTest {
+
+    @Test
+    void convertPitchToWavelength() {
+        assertEquals(AudioBuffer.SAMPLE_RATE / 440.0, Utils.convertPitchToWavelength(69), 0.001);
+        assertEquals(Utils.convertPitchToWavelength(0) / 2, Utils.convertPitchToWavelength(12), 0.001);
+    }
+
+    @Test
+    void covertSecondsToSamples() {
+        assertEquals(AudioBuffer.SAMPLE_RATE, Utils.covertSecondsToSamples(1));
+        assertEquals(0, Utils.covertSecondsToSamples(0));
+    }
+}

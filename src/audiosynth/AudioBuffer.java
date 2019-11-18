@@ -37,6 +37,15 @@ public class AudioBuffer {
         return samples;
     }
 
+    /**
+     * Fills the entire buffer with the given waveform, overwriting any data already present.
+     */
+    public void fill(Waveform waveform) {
+        for (int n = 0; n < samples.length; n++) {
+            samples[n] = (float) waveform.amplitudeAt(n);
+        }
+    }
+
     public float getPeak() {
         float max = 0;
         for (float sample : samples) {

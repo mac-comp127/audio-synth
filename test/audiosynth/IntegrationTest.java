@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-class SongReaderTest {
+class IntegrationTest {
 
     @Test
     void readSong() {

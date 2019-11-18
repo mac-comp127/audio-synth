@@ -14,6 +14,7 @@ public class SongVisualization extends GraphicsGroup {
 
     private final double pixelsPerSecond, pixelsPerSemitone;
     private final double hairlinePosition = 200;
+    private final Line hairline;
     private final GraphicsGroup noteGroup;
     private final Map<Instrument,Color> instrumentColors = new HashMap<>();
     private final Map<Note,Rectangle> noteVisualizations = new HashMap<>();
@@ -22,14 +23,14 @@ public class SongVisualization extends GraphicsGroup {
         this.pixelsPerSecond = pixelsPerSecond;
         this.pixelsPerSemitone = pixelsPerSemitone;
 
-        Line hairline = new Line(hairlinePosition, 0, hairlinePosition, (MAX_PITCH + 1) * pixelsPerSemitone);
+        hairline = new Line(hairlinePosition, 0, hairlinePosition, (MAX_PITCH + 1) * pixelsPerSemitone);
         hairline.setStrokeColor(Color.DARK_GRAY);
         hairline.setStrokeWidth(0.5);
         add(hairline);
 
         noteGroup = new GraphicsGroup();
         add(noteGroup);
-        setTime(0);
+        setTime(0, true);
     }
 
     public void showSong(Song song) {
@@ -59,13 +60,14 @@ public class SongVisualization extends GraphicsGroup {
         return color;
     }
 
-    public void setTime(double seconds) {
+    public void setTime(double seconds, boolean done) {
         noteGroup.setPosition(hairlinePosition - seconds * pixelsPerSecond, 0);
+        hairline.setStroked(!done);
 
         for (var entry : noteVisualizations.entrySet()) {
             Note note = entry.getKey();
             Rectangle rect = entry.getValue();
-            if (seconds >= note.getStartTime() && seconds <= note.getEndTime()) {
+            if (!done && seconds >= note.getStartTime() && seconds <= note.getEndTime()) {
                 rect.setFillColor(Color.WHITE);
                 rect.setStrokeColor(Color.WHITE);
             } else {

@@ -20,7 +20,6 @@ public class AudioSynth {
         window.setBackground(Color.BLACK);
 
         song.renderAudio().play(
-            visualization::setTime,
-            () -> System.out.println("Done!"));
+            visualization::setTime);
     }
 }

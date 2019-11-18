@@ -1,6 +1,5 @@
 package audiosynth.instrument;
 
-import audiosynth.Utils;
 import audiosynth.Waveform;
 
 public class SquareWave implements Instrument {

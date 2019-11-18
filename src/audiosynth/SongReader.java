@@ -2,7 +2,6 @@ package audiosynth;
 
 import audiosynth.instrument.*;
 
-import java.awt.Color;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;

@@ -3,7 +3,6 @@ package audiosynth;
 import comp127graphics.CanvasWindow;
 
 import java.awt.Color;
-import java.util.Arrays;
 
 public class AudioSynth {
     public static void main(String[] args) {

@@ -61,20 +61,16 @@ public class AudioBuffer {
     }
 
     public void play() {
-        play(1.0);
+        play(() -> {});
     }
 
-    public void play(double volume) {
-        play(volume, () -> {});
+    public void play(Runnable completionCallback) {
+        play(t -> { }, completionCallback);
     }
 
-    public void play(double volume, Runnable completionCallback) {
-        play(volume, t -> { }, completionCallback);
-    }
-
-    public void play(double volume, PlayingCallback playingCallback, Runnable completionCallback) {
+    public void play(PlayingCallback playingCallback, Runnable completionCallback) {
         playAudioData(
-            convertSamplesToRawData(volume),
+            convertSamplesToRawData(),
             playingCallback,
             keepJVMAliveUntilCompletion(completionCallback));
     }
@@ -82,10 +78,10 @@ public class AudioBuffer {
     /**
      * Converts the float audio to 16-bit samples for playback.
      */
-    private byte[] convertSamplesToRawData(double volume) {
+    private byte[] convertSamplesToRawData() {
         byte[] audioData = new byte[samples.length * 2];
         for (int i = 0, out = 0; i < samples.length; i++) {
-            short sample16 = (short) (samples[i] * volume * Short.MAX_VALUE);
+            short sample16 = (short) (samples[i] * Short.MAX_VALUE);
             audioData[out++] = (byte) (sample16 >> 8);
             audioData[out++] = (byte) sample16;
         }

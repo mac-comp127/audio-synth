@@ -45,7 +45,7 @@ public class SongReader {
     }
 
     public static void main(String[] args) {
-        String fileName = "simpletest.csv";
+        String fileName = "kondo.csv";
         Song song = new SongReader().readSong(fileName);
 
         SongVisualization visualization = new SongVisualization(80, 6);
@@ -59,7 +59,6 @@ public class SongReader {
         window.setBackground(Color.BLACK);
 
         song.renderAudio().play(
-            1.0,
             visualization::setTime,
             () -> System.out.println("Done!"));
     }

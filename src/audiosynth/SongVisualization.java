@@ -9,6 +9,9 @@ import java.awt.Color;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Visualizes a Song as a collection of multicolored rectangles.
+ */
 public class SongVisualization extends GraphicsGroup {
     public static final int MAX_PITCH = 120;
 
@@ -19,6 +22,12 @@ public class SongVisualization extends GraphicsGroup {
     private final Map<Waveform,Color> waveformColors = new HashMap<>();
     private final Map<Note,Rectangle> noteVisualizations = new HashMap<>();
 
+    /**
+     * Creates an empty song visualization.
+     *
+     * @param pixelsPerSecond   Horizontal distance of one second
+     * @param pixelsPerSemitone Number of pixels per pitch unit
+     */
     public SongVisualization(double pixelsPerSecond, double pixelsPerSemitone) {
         this.pixelsPerSecond = pixelsPerSecond;
         this.pixelsPerSemitone = pixelsPerSemitone;
@@ -33,6 +42,9 @@ public class SongVisualization extends GraphicsGroup {
         setTime(0, true);
     }
 
+    /**
+     * Shows the notes of the given song, removing any song already present.
+     */
     public void showSong(Song song) {
         noteGroup.removeAll();
         noteVisualizations.clear();
@@ -60,6 +72,12 @@ public class SongVisualization extends GraphicsGroup {
         return color;
     }
 
+    /**
+     * Moves the visualization to show that the given time is the current time.
+     *
+     * @param seconds Time from the beginning of the song
+     * @param done    True if the song is done playing
+     */
     public void setTime(double seconds, boolean done) {
         noteGroup.setPosition(hairlinePosition - seconds * pixelsPerSecond, 0);
         hairline.setStroked(!done);

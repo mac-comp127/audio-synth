@@ -18,6 +18,7 @@ public class AudioBuffer {
      */
     public static final int SAMPLE_RATE = 48000;
 
+    // Compensation for latency cause by using a Swing timer when sending playback events.
     private static final double LATENCY_COMPENSATION = 1.0 / 60;
 
     private final float[] samples;
@@ -70,6 +71,16 @@ public class AudioBuffer {
         }
     }
 
+    /**
+     * Renders part of the given signal into this audio buffer, adding to sample values already
+     * present in the buffer.
+     *
+     * @param signal    A sound source.
+     * @param offset    The number of samples into the audio buffer to start mixing in the signal.
+     *                  Signal time 0 starts at this offset.
+     * @param duration  The number of samples of the signal to add to the buffer. The offset +
+     *                  duration must not exceed the length of the buffer.
+     */
     public void mix(Signal signal, int offset, int duration) {
         for(int n = 0; n < duration && n + offset < samples.length; n++) {
             samples[n + offset] += signal.amplitudeAt(n);

@@ -1,6 +1,6 @@
 package audiosynth;
 
-import audiosynth.instrument.Instrument;
+import audiosynth.waveform.Waveform;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -11,8 +11,8 @@ class SongTest {
     private static final double CONCERT_A_WAVELENGTH = AudioBuffer.SAMPLE_RATE / 880.0;
 
     private Song song = new Song();
-    private Instrument instrument0 = wavelength -> t -> wavelength;
-    private Instrument instrument1 = wavelength -> t -> (t % 2 * 2 - 1) * CONCERT_A_WAVELENGTH * 3;
+    private Waveform waveform0 = wavelength -> t -> wavelength;
+    private Waveform waveform1 = wavelength -> t -> (t % 2 * 2 - 1) * CONCERT_A_WAVELENGTH * 3;
 
     @Test
     void startsEmpty() {
@@ -22,24 +22,24 @@ class SongTest {
     @Test
     void notesAreUnmodifiable() {
         assertThrows(UnsupportedOperationException.class, () ->
-            song.getNotes().add(new Note(instrument0, 0, 0, 0)));
+            song.getNotes().add(new Note(waveform0, 0, 0, 0)));
     }
 
     @Test
     void getDuration() {
-        song.addNote(new Note(instrument0, 5, 4.5, 1.5));
+        song.addNote(new Note(waveform0, 5, 4.5, 1.5));
         assertEquals(6, song.getDuration());
-        song.addNote(new Note(instrument1, 7, 10, 2));
+        song.addNote(new Note(waveform1, 7, 10, 2));
         assertEquals(12, song.getDuration());
-        song.addNote(new Note(instrument0, 7, 9, 2.5));
+        song.addNote(new Note(waveform0, 7, 9, 2.5));
         assertEquals(12, song.getDuration());
     }
 
     @Test
     void renderAudio() {
         double sampleLen = 1.0 / AudioBuffer.SAMPLE_RATE;
-        song.addNote(new Note(instrument0, 81, 2 * sampleLen, 4 * sampleLen));
-        song.addNote(new Note(instrument1, 33, 4 * sampleLen, 5 * sampleLen));
+        song.addNote(new Note(waveform0, 81, 2 * sampleLen, 4 * sampleLen));
+        song.addNote(new Note(waveform1, 33, 4 * sampleLen, 5 * sampleLen));
 
         AudioBuffer audio = song.renderAudio();
         assertArrayEquals(

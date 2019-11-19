@@ -1,22 +1,22 @@
 package audiosynth;
 
-import audiosynth.instrument.Instrument;
+import audiosynth.waveform.Waveform;
 
 import java.util.Objects;
 
 public final class Note {
-    private final Instrument instrument;
+    private final Waveform waveform;
     private final double pitch, startTime, duration;
 
-    public Note(Instrument instrument, double pitch, double startTime, double duration) {
-        this.instrument = Objects.requireNonNull(instrument, "instrument");
+    public Note(Waveform waveform, double pitch, double startTime, double duration) {
+        this.waveform = Objects.requireNonNull(waveform, "waveform");
         this.pitch = pitch;
         this.startTime = startTime;
         this.duration = duration;
     }
 
-    public Instrument getInstrument() {
-        return instrument;
+    public Waveform getWaveform() {
+        return waveform;
     }
 
     public double getPitch() {
@@ -47,11 +47,11 @@ public final class Note {
         return Double.compare(note.pitch, pitch) == 0 &&
             Double.compare(note.startTime, startTime) == 0 &&
             Double.compare(note.duration, duration) == 0 &&
-            instrument.equals(note.instrument);
+            waveform.equals(note.waveform);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(instrument, pitch, startTime, duration);
+        return Objects.hash(waveform, pitch, startTime, duration);
     }
 }

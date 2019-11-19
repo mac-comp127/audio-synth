@@ -28,7 +28,7 @@ public class Song {
 
         for (Note note : notes) {
             audio.mix(
-                note.getInstrument().createWaveform(
+                note.getWaveform().createSignal(
                     Utils.convertPitchToWavelength(note.getPitch())),
                 Utils.covertSecondsToSamples(note.getStartTime()),
                 Utils.covertSecondsToSamples(note.getDuration()));

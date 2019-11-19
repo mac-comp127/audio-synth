@@ -39,11 +39,11 @@ public class AudioBuffer {
     }
 
     /**
-     * Fills the entire buffer with the given waveform, overwriting any data already present.
+     * Fills the entire buffer by sampling the given signal, overwriting any data already present.
      */
-    public void fill(Waveform waveform) {
+    public void fill(Signal signal) {
         for (int n = 0; n < samples.length; n++) {
-            samples[n] = (float) waveform.amplitudeAt(n);
+            samples[n] = (float) signal.amplitudeAt(n);
         }
     }
 
@@ -70,9 +70,9 @@ public class AudioBuffer {
         }
     }
 
-    public void mix(Waveform waveform, int offset, int duration) {
+    public void mix(Signal signal, int offset, int duration) {
         for(int n = 0; n < duration && n + offset < samples.length; n++) {
-            samples[n + offset] += waveform.amplitudeAt(n);
+            samples[n + offset] += signal.amplitudeAt(n);
         }
     }
 

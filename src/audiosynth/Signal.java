@@ -1,5 +1,5 @@
 package audiosynth;
 
-public interface Waveform {
+public interface Signal {
     double amplitudeAt(double t);
 }

@@ -1,18 +1,18 @@
 package audiosynth;
 
-import audiosynth.instrument.Instrument;
+import audiosynth.waveform.Waveform;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class NoteTest {
-    private Instrument instrument = x -> y -> 0;
-    private Instrument instrument2 = x -> y -> 0;
+    private Waveform waveform = x -> y -> 0;
+    private Waveform waveform2 = x -> y -> 0;
 
     @Test
     void construction() {
-        Note note = new Note(instrument, 32, 88.5, 0.8);
-        assertSame(instrument, note.getInstrument());
+        Note note = new Note(waveform, 32, 88.5, 0.8);
+        assertSame(waveform, note.getWaveform());
         assertEquals(32, note.getPitch());
         assertEquals(88.5, note.getStartTime());
         assertEquals(0.8, note.getDuration());
@@ -23,17 +23,17 @@ class NoteTest {
 
     @Test
     void getEndTime() {
-        assertEquals(89.3, new Note(instrument, 6, 88.5, 0.8).getEndTime());
+        assertEquals(89.3, new Note(waveform, 6, 88.5, 0.8).getEndTime());
     }
 
     @Test
     void testEquals() {
-        Note note = new Note(instrument, 1, 2, 3);
-        assertEquals(new Note(instrument, 1, 2, 3), note);
-        assertNotEquals(new Note(instrument2, 1, 2, 3), note);
-        assertNotEquals(new Note(instrument, 7, 2, 3), note);
-        assertNotEquals(new Note(instrument, 1, 8, 3), note);
-        assertNotEquals(new Note(instrument, 1, 2, 9), note);
+        Note note = new Note(waveform, 1, 2, 3);
+        assertEquals(new Note(waveform, 1, 2, 3), note);
+        assertNotEquals(new Note(waveform2, 1, 2, 3), note);
+        assertNotEquals(new Note(waveform, 7, 2, 3), note);
+        assertNotEquals(new Note(waveform, 1, 8, 3), note);
+        assertNotEquals(new Note(waveform, 1, 2, 9), note);
         assertNotEquals("not a note", note);
         assertNotEquals(null, note);
     }

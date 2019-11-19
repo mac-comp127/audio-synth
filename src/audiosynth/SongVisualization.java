@@ -1,6 +1,6 @@
 package audiosynth;
 
-import audiosynth.instrument.Instrument;
+import audiosynth.waveform.Waveform;
 import comp127graphics.GraphicsGroup;
 import comp127graphics.Line;
 import comp127graphics.Rectangle;
@@ -16,7 +16,7 @@ public class SongVisualization extends GraphicsGroup {
     private final double hairlinePosition = 200;
     private final Line hairline;
     private final GraphicsGroup noteGroup;
-    private final Map<Instrument,Color> instrumentColors = new HashMap<>();
+    private final Map<Waveform,Color> waveformColors = new HashMap<>();
     private final Map<Note,Rectangle> noteVisualizations = new HashMap<>();
 
     public SongVisualization(double pixelsPerSecond, double pixelsPerSemitone) {
@@ -51,11 +51,11 @@ public class SongVisualization extends GraphicsGroup {
     }
 
     private Color getNoteColor(Note note) {
-        Instrument instrument = note.getInstrument();
-        Color color = instrumentColors.get(instrument);
+        Waveform waveform = note.getWaveform();
+        Color color = waveformColors.get(waveform);
         if (color == null) {
-            color = Color.getHSBColor(instrumentColors.size() * 0.382f % 1, 1, 0.6f);
-            instrumentColors.put(instrument, color);
+            color = Color.getHSBColor(waveformColors.size() * 0.382f % 1, 1, 0.6f);
+            waveformColors.put(waveform, color);
         }
         return color;
     }

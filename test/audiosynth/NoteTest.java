@@ -1,13 +1,15 @@
 package audiosynth;
 
+import audiosynth.waveform.SineWave;
+import audiosynth.waveform.SquareWave;
 import audiosynth.waveform.Waveform;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class NoteTest {
-    private Waveform waveform = x -> y -> 0;
-    private Waveform waveform2 = x -> y -> 0;
+    private Waveform waveform = new SineWave();
+    private Waveform waveform2 = new SquareWave();
 
     @Test
     void construction() {

@@ -24,33 +24,4 @@ public class Song {
     public List<Note> getNotes() {
         return Collections.unmodifiableList(notes);
     }
-
-    /**
-     * Returns maximum end time of any note in the song. Returns 0 if the song is empty.
-     */
-    public double getDuration() {
-        return notes.stream()
-            .mapToDouble(Note::getEndTime)
-            .max().orElse(0);
-    }
-
-    /**
-     * Renders all the notes in the piece to an audio buffer.
-     */
-    public AudioBuffer renderAudio() {
-        AudioBuffer audio = new AudioBuffer(
-            Utils.covertSecondsToSamples(
-                getDuration()));
-
-        for (Note note : notes) {
-            audio.mix(
-                note.getWaveform().createSignal(
-                    Utils.convertPitchToWavelength(note.getPitch())),
-                Utils.covertSecondsToSamples(note.getStartTime()),
-                Utils.covertSecondsToSamples(note.getDuration()));
-        }
-
-        audio.normalize();
-        return audio;
-    }
 }

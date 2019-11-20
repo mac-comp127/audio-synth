@@ -24,28 +24,4 @@ class SongTest {
         assertThrows(UnsupportedOperationException.class, () ->
             song.getNotes().add(new Note(waveform0, 0, 0, 0)));
     }
-
-    @Test
-    void getDuration() {
-        assertEquals(0, song.getDuration());
-        song.addNote(new Note(waveform0, 5, 4.5, 1.5));
-        assertEquals(6, song.getDuration());
-        song.addNote(new Note(waveform1, 7, 10, 2));
-        assertEquals(12, song.getDuration());
-        song.addNote(new Note(waveform0, 7, 9, 2.5));
-        assertEquals(12, song.getDuration());
-    }
-
-    @Test
-    void renderAudio() {
-        double sampleLen = 1.0 / AudioBuffer.SAMPLE_RATE;
-        song.addNote(new Note(waveform0, 81, 2 * sampleLen, 4 * sampleLen));
-        song.addNote(new Note(waveform1, 33, 4 * sampleLen, 5 * sampleLen));
-
-        AudioBuffer audio = song.renderAudio();
-        assertArrayEquals(
-            new float[] { 0, 0, 0.25f, 0.25f, -0.5f, 1, -0.75f, 0.75f, -0.75f },
-            audio.getSamples(),
-            0.0001f);
-    }
 }

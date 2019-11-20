@@ -16,8 +16,6 @@ public class SongVisualization extends GraphicsGroup {
     public static final int MAX_PITCH = 120;
 
     private final double pixelsPerSecond, pixelsPerSemitone;
-    private final double hairlinePosition = 200;
-    private final Line hairline;
     private final GraphicsGroup noteGroup;
     private final Map<Waveform,Color> waveformColors = new HashMap<>();
 
@@ -31,14 +29,8 @@ public class SongVisualization extends GraphicsGroup {
         this.pixelsPerSecond = pixelsPerSecond;
         this.pixelsPerSemitone = pixelsPerSemitone;
 
-        hairline = new Line(hairlinePosition, 0, hairlinePosition, (MAX_PITCH + 1) * pixelsPerSemitone);
-        hairline.setStrokeColor(Color.DARK_GRAY);
-        hairline.setStrokeWidth(0.5);
-        add(hairline);
-
         noteGroup = new GraphicsGroup();
         add(noteGroup);
-        setTime(0, true);
     }
 
     /**
@@ -67,20 +59,5 @@ public class SongVisualization extends GraphicsGroup {
             waveformColors.put(waveform, color);
         }
         return color;
-    }
-
-    /**
-     * Moves the visualization to show that the given time is the current time.
-     *
-     * @param seconds Time from the beginning of the song
-     * @param done    True if the song is done playing
-     */
-    public void setTime(double seconds, boolean done) {
-        noteGroup.setPosition(hairlinePosition - seconds * pixelsPerSecond, 0);
-        hairline.setStroked(!done);
-
-        if (noteGroup.getCanvas() != null) {
-            noteGroup.getCanvas().draw();
-        }
     }
 }

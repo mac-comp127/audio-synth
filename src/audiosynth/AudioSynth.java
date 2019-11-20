@@ -22,7 +22,6 @@ public class AudioSynth {
         window.add(visualization);
         window.setBackground(Color.BLACK);
 
-        song.renderAudio().play(
-            visualization::setTime);
+        song.renderAudio().play();
     }
 }

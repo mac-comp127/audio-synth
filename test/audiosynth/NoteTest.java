@@ -9,7 +9,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class NoteTest {
     private Waveform waveform = new SineWave();
-    private Waveform waveform2 = new SquareWave();
 
     @Test
     void construction() {
@@ -26,17 +25,5 @@ class NoteTest {
     @Test
     void getEndTime() {
         assertEquals(89.3, new Note(waveform, 6, 88.5, 0.8).getEndTime());
-    }
-
-    @Test
-    void testEquals() {
-        Note note = new Note(waveform, 1, 2, 3);
-        assertEquals(new Note(waveform, 1, 2, 3), note);
-        assertNotEquals(new Note(waveform2, 1, 2, 3), note);
-        assertNotEquals(new Note(waveform, 7, 2, 3), note);
-        assertNotEquals(new Note(waveform, 1, 8, 3), note);
-        assertNotEquals(new Note(waveform, 1, 2, 9), note);
-        assertNotEquals("not a note", note);
-        assertNotEquals(null, note);
     }
 }

@@ -46,24 +46,4 @@ public final class Note {
     public double getDuration() {
         return duration;
     }
-
-    @Override
-    public boolean equals(Object that) {
-        if (this == that) {
-            return true;
-        }
-        if (that == null || getClass() != that.getClass()) {
-            return false;
-        }
-        Note note = (Note) that;
-        return Double.compare(note.pitch, pitch) == 0 &&
-            Double.compare(note.startTime, startTime) == 0 &&
-            Double.compare(note.duration, duration) == 0 &&
-            waveform.equals(note.waveform);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(waveform, pitch, startTime, duration);
-    }
 }

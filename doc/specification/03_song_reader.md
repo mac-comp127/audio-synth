@@ -85,7 +85,9 @@ new SongReader()
     .play();
 ```
 
-Did you hear something that sounds like music? 🕺💃🏾 If so, try replacing `simpletest.csv` with:
+Did you hear something that sounds like music? 💃🏾 Hooray! 🕺
+
+Now it’s time to exercise your code! Try replacing `simpletest.csv` with:
 
 - `bach.csv`
 - `kondo.csv`

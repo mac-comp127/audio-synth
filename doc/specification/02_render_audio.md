@@ -2,6 +2,8 @@
 
 Your goal: create code to render your song model to an `AudioBuffer` so you can hear it.
 
+This is where all the existing classes come together!
+
 ## New methods in `Song`
 
 ```java
@@ -67,7 +69,7 @@ void renderAudio() {
 
 ## Try it!
 
-Replace the contents of the `main()` method in `AudioSynth` with the following code:
+Did those tests pass? Then you are ready to hear some sounds! Replace the contents of the `main()` method in `AudioSynth` with the following code:
 
 ```java
 Song song = new Song();
@@ -77,4 +79,4 @@ song.addNote(new Note(new SquareWave(), 67, 1.0, 1.0));
 song.renderAudio().play();
 ```
 
-Run it and you should hear a nice Eb flat major triad. (You don’t need to know what that is if you’re not a musician! Just enjoy the nice sound.)
+Run it and you should hear a nice E♭ flat major triad.

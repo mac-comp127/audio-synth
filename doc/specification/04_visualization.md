@@ -1,6 +1,6 @@
 # Visualization specification
 
-Your goal: create a class to visualize your song model on the screen.
+Your goal: create a class to visualize songs on the screen.
 
 # `SongVisualization` class
 

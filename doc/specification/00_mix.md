@@ -2,9 +2,9 @@
 
 Your goal: modify `AudioBuffer` so that you can mix in slices of different signals. You will use this to combine many notes into one song.
 
-## Outline of new `AudioBuffer` method
+## New `AudioBuffer` method
 
-Copy and paste this (including the Javadoc!) into `AudioBuffer` to get started:
+Copy and paste this (including the Javadoc!) into `AudioBuffer` to get started, then implement the method:
 
 ```java
 /**

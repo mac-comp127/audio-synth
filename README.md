@@ -87,10 +87,12 @@ For this assignment, please work through the following list of guided tasks:
 
 Extra credit challenges:
 
-- [**Visualization**](doc/specification/04_visualization.md): Create a class to visualize your song model on the screen.
+- [**Visualization**](doc/specification/04_visualization.md): Create a class to visualize songs on the screen.
 - [**Animation**](doc/specification/05_animation.md): Make the music scroll as it plays.
 - [**Note highlighting**](doc/specification/06_highlight.md): Highlight the currently playing notes. A little tricky, but it looks _awesome!_
 
 Each task gives you the outline of a class structure, some hints, and some tests. 🚨 **Do not neglect the tests!** 🚨 Be sure to run the tests each step gives you and make sure they pass before moving on to the next step.
 
-Note that the main point of this assignment is to give you the feeling of working with and building out an object model with many moving parts. The point is _not_ to create difficulty understanding directions! If you look at any of the of the classes and methods described in the steps above and think to yourself, “What does that mean?!,” **please ask for clarification right away.**
+Note that the main point of this assignment is to give you the feeling of working with and building out an object model with many moving parts. The point is _not_ to confuse you with tricky directions! If you look at any of the of the classes and methods described in the steps above and think to yourself, “What does that mean?!,” **please ask for clarification right away.**
+
+Enjoy! 🎵

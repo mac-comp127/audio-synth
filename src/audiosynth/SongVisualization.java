@@ -20,7 +20,6 @@ public class SongVisualization extends GraphicsGroup {
     private final Line hairline;
     private final GraphicsGroup noteGroup;
     private final Map<Waveform,Color> waveformColors = new HashMap<>();
-    private final Map<Note,Rectangle> noteVisualizations = new HashMap<>();
 
     /**
      * Creates an empty song visualization.
@@ -47,7 +46,6 @@ public class SongVisualization extends GraphicsGroup {
      */
     public void showSong(Song song) {
         noteGroup.removeAll();
-        noteVisualizations.clear();
 
         for (Note note : song.getNotes()) {
             Rectangle rect = new Rectangle(
@@ -58,7 +56,6 @@ public class SongVisualization extends GraphicsGroup {
             rect.setStrokeWidth(0.5);
             rect.setFillColor(getNoteColor(note));
             noteGroup.add(rect);
-            noteVisualizations.put(note, rect);
         }
     }
 
@@ -81,18 +78,6 @@ public class SongVisualization extends GraphicsGroup {
     public void setTime(double seconds, boolean done) {
         noteGroup.setPosition(hairlinePosition - seconds * pixelsPerSecond, 0);
         hairline.setStroked(!done);
-
-        for (var entry : noteVisualizations.entrySet()) {
-            Note note = entry.getKey();
-            Rectangle rect = entry.getValue();
-            if (!done && seconds >= note.getStartTime() && seconds <= note.getEndTime()) {
-                rect.setFillColor(Color.WHITE);
-                rect.setStrokeColor(Color.WHITE);
-            } else {
-                rect.setFillColor(getNoteColor(note));
-                rect.setStrokeColor(Color.BLACK);
-            }
-        }
 
         if (noteGroup.getCanvas() != null) {
             noteGroup.getCanvas().draw();

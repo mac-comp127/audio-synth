@@ -6,13 +6,17 @@ In this homework, you will build an audio synthesizer that plays and visualizes 
 
 This homework serves several learning goals:
 
-- You’ll practice working with **many small, independent classes** in a heavily decomposed architecture. This whole assignment could be one unwieldy class! Instead, you will implement it using many small ones. (There are 15 classes and interfaces in the full solution, not counting tests.) This is typical of software projects that (1) have multiple collaborators and/or (2) are planning for growth — and it is the approach you should bring to your project.
+- You’ll practice working with **many small, independent classes** in a heavily decomposed architecture. This whole assignment could be one unwieldy class, but instead you will implement it using many small ones. (There are 15 classes and interfaces in the full solution, not counting tests.) This is typical of software projects that (1) have multiple collaborators and/or (2) are planning for growth — and it is the approach you should bring to your project. How does this fit into the big picture of COMP 127?
+    - In earlier assignments, we gave you small class designs.
+    - In Breakout, you asked you to figure out a small class design on your own.
+    - In _this_ assignment, we give you a _large_ class design.
+    - For your final project, you will have to figure out a large class design on your own.
 - This assignment gives you a little more **practice with arrays and maps**.
 - The homework helps you **keep your coding muscles limber** while you are in the design phase of your course project.
 - Most importantly, the results are **fun**!
 
 
-## Step 0: Understand your starting point
+## Terminology and starting point
 
 We have given you some starter code that provides the following building blocks for building your music synthesizer:
 
@@ -72,15 +76,21 @@ See if you can figure out how to change the:
 - ✅ waveform.
 
 
-## Understand your task
+## Your tasks
 
-In earlier assignments, we gave you small class designs. In Breakout, you had to figure out a small class design on your own. In _this_ assignment, we give you a _large_ class design. And for your final project, you will have to figure out a large class design on your own.
+For this assignment, please work through the following list of guided tasks:
 
-Here is an overview of the tasks you will complete:
+- [**Mixing**](doc/specification/00_mix.md): Add the ability to combine many distinct signals into one piece of audio.
+- [**Song model**](doc/specification/01_song_model.md): Create an object model to represent a song made of many notes.
+- [**Song audio rendering**](doc/specification/02_render_audio.md): Create code to render your song model to an `AudioBuffer` so you can hear it.
+- [**Read song files**](doc/specification/03_song_reader.md): Create a class to read song data from a file. After this step, you can hear the songs!
 
-- Add a `mix()` method to `AudioBuffer` so you can combine many distinct notes into one piece of audio.
-- Create an object model to represent a song made of many notes.
-- Create code to render your song model to an `AudioBuffer`.
-- Create a class to read song data from a file.
-- Create a class to visualize your song model on the screen.
+Extra credit challenges:
 
+- [**Visualization**](doc/specification/04_visualization.md): Create a class to visualize your song model on the screen.
+- [**Animation**](doc/specification/05_animation.md): Make the music scroll as it plays.
+- [**Note highlighting**](doc/specification/06_highlight.md): Highlight the currently playing notes. A little tricky, but it looks _awesome!_
+
+Each task gives you the outline of a class structure, some hints, and some tests. 🚨 **Do not neglect the tests!** 🚨 Be sure to run the tests each step gives you and make sure they pass before moving on to the next step.
+
+Note that the main point of this assignment is to give you the feeling of working with and building out an object model with many moving parts. The point is _not_ to create difficulty understanding directions! If you look at any of the of the classes and methods described in the steps above and think to yourself, “What does that mean?!,” **please ask for clarification right away.**

@@ -23,6 +23,15 @@ import java.util.Scanner;
 public class SongReader {
     private final Map<String, Waveform> waveforms = new HashMap<>();
 
+    /**
+     * Creates a new song reader with the following name-to-waveform mappings:
+     *
+     * - "sine"   → SineWave
+     * - "tri"    → TriangularWave
+     * - "square" → SquareWave
+     * - "saw"    → SawtoothWave
+     * - "noise"  → Noise
+     */
     public SongReader() {
         waveforms.put("sine", new SineWave());
         waveforms.put("tri", new TriangularWave());

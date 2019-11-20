@@ -15,7 +15,7 @@ public final class Note {
     /**
      * Creates a note.
      *
-     * @param waveform  The shape of the wave
+     * @param waveform  The shape of the wave (must not be null)
      * @param pitch     Pitch in MIDI units
      * @param startTime Start time in seconds
      * @param duration  Duration in seconds

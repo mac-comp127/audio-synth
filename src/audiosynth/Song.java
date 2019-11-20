@@ -6,6 +6,7 @@ import java.util.List;
 
 /**
  * A collection of notes that (perhaps) make music together.
+ * A newly created song starts out empty — no notes.
  */
 public class Song {
     private final List<Note> notes = new ArrayList<>();
@@ -25,7 +26,7 @@ public class Song {
     }
 
     /**
-     * Returns the end time of the last note in the whole piece.
+     * Returns maximum end time of any note in the song. Returns 0 if the song is empty.
      */
     public double getDuration() {
         return notes.stream()

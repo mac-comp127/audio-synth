@@ -1,6 +1,10 @@
 # Song object model specification
 
+Your goal: create an object model to represent a song made of many notes.
+
 ## `Note` class
+
+Here is a sketch of the new class. Again, copy and paste this in (including the javadoc comments!) as your starting point. This only shows the signature of public methods. What instance variables does the class need?
 
 ```java
 /**
@@ -18,6 +22,8 @@ public final class Note
      * @param duration  Duration in seconds
      */
     public Note(Waveform waveform, double pitch, double startTime, double duration)
+        // hint: to make sure that waveform is not null, use:
+        // Objects.requireNonNull(waveform, "waveform")
 
     public Waveform getWaveform()
 
@@ -29,6 +35,32 @@ public final class Note
 
     public double getDuration()
 ```
+
+Here are some tests that will pass if you implemented `Note` correctly:
+
+```java
+class NoteTest {
+    private Waveform waveform = new SineWave();
+
+    @Test
+    void construction() {
+        Note note = new Note(waveform, 32, 88.5, 0.8);
+        assertSame(waveform, note.getWaveform());
+        assertEquals(32, note.getPitch());
+        assertEquals(88.5, note.getStartTime());
+        assertEquals(0.8, note.getDuration());
+        assertThrows(NullPointerException.class, () -> {
+            new Note(null, 32, 88.5, 0.8);
+        });
+    }
+
+    @Test
+    void getEndTime() {
+        assertEquals(89.3, new Note(waveform, 6, 88.5, 0.8).getEndTime());
+    }
+}
+```
+
 
 ## `Song` class
 
@@ -48,53 +80,18 @@ public class Song
      * Returns an unmodifiable collection of all the notes in the piece.
      */
     public List<Note> getNotes()
+        // Hint: use Collections.unmodifiableList(...)
 
 ```
 
-
-
+Tests:
 
 ```java
-class NoteTest {
-    private Waveform waveform = new SineWave();
-    private Waveform waveform2 = new SquareWave();
-
-    @Test
-    void construction() {
-        Note note = new Note(waveform, 32, 88.5, 0.8);
-        assertSame(waveform, note.getWaveform());
-        assertEquals(32, note.getPitch());
-        assertEquals(88.5, note.getStartTime());
-        assertEquals(0.8, note.getDuration());
-        assertThrows(NullPointerException.class, () -> {
-            new Note(null, 32, 88.5, 0.8);
-        });
-    }
-
-    @Test
-    void getEndTime() {
-        assertEquals(89.3, new Note(waveform, 6, 88.5, 0.8).getEndTime());
-    }
-
-    @Test
-    void testEquals() {
-        Note note = new Note(waveform, 1, 2, 3);
-        assertEquals(new Note(waveform, 1, 2, 3), note);
-        assertNotEquals(new Note(waveform2, 1, 2, 3), note);
-        assertNotEquals(new Note(waveform, 7, 2, 3), note);
-        assertNotEquals(new Note(waveform, 1, 8, 3), note);
-        assertNotEquals(new Note(waveform, 1, 2, 9), note);
-        assertNotEquals("not a note", note);
-        assertNotEquals(null, note);
-    }
-}
-
 class SongTest {
     private static final double CONCERT_A_WAVELENGTH = AudioBuffer.SAMPLE_RATE / 880.0;
 
     private Song song = new Song();
     private Waveform waveform0 = wavelength -> t -> wavelength;
-    private Waveform waveform1 = wavelength -> t -> (t % 2 * 2 - 1) * CONCERT_A_WAVELENGTH * 3;
 
     @Test
     void startsEmpty() {

@@ -27,6 +27,7 @@ class SongTest {
 
     @Test
     void getDuration() {
+        assertEquals(0, song.getDuration());
         song.addNote(new Note(waveform0, 5, 4.5, 1.5));
         assertEquals(6, song.getDuration());
         song.addNote(new Note(waveform1, 7, 10, 2));

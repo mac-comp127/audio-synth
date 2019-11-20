@@ -12,11 +12,12 @@ class IntegrationTest {
 
     @Test
     void readSong() {
-        Song tinySong = new SongReader().readSong(stringInputStream(tinySongCSV));
-        assertArrayEquals(
-            tinySongRendered,
-            tinySong.renderAudio().getSamples(),
-            0.002f);
+        // TODO: uncomment this when you think you have everything working
+//        Song tinySong = new SongReader().readSong(stringInputStream(tinySongCSV));
+//        assertArrayEquals(
+//            tinySongRendered,
+//            tinySong.renderAudio().getSamples(),
+//            0.002f);
     }
 
     private InputStream stringInputStream(String s) {

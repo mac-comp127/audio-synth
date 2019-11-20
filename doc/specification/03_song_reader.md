@@ -31,7 +31,13 @@ public class SongReader
      * - "noise"  → Noise
      */
     public SongReader()
-        // Hint: use a Map instance variable to track the name → waveform mappings
+        // Hint: use a Map instance variable to track the name → waveform mappings.
+        //
+        // Later you will get waveforms out of this map and use them to create Notes.
+        //
+        // Look at the `AudioSynth.main()` test code from the previous step
+        // for a reminder of how to make an object that represents a waveform
+        // of a particular type.
 
     /**
      * Reads song data from the given project resource.
@@ -41,10 +47,21 @@ public class SongReader
     }
 
     /**
-     * Reads song data from an arbitrary input stream.
+     * Reads song data from an arbitrary input stream. The song data should be
+     * comma-separated text, one note per line, with the following format:
+     *
+     *     [waveform name], [pitch], [start time], [duration]
+     *
+     * For example, here are three notes:
+     *
+     *     sine, 61, 0.6, 0.2
+     *     tri, 50, 0.8, 0.2
+     *     square, 50, 1.6, 0.2
      */
     public Song readSong(InputStream in) {
+        // Delimiter allows values to be separated by commas, spaces, or line breaks
         Scanner scanner = new Scanner(in).useDelimiter("\\s*,\\s*|\\s+");
+
         Song song = new Song();
         while(scanner.hasNext()) {
             // Use scanner.next() and scanner.nextDouble() to read the following
@@ -56,6 +73,7 @@ public class SongReader
             // - duration
             //
             // ...then use that data to create a new Note and add it to the song.
+            // (Look at the Note constructor to see what types you need in what order.)
         }
         return song;
     }

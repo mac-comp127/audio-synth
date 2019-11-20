@@ -25,16 +25,19 @@ public AudioBuffer renderAudio()
     //
     // For each note:
     //
-    //     Call mix() on your audio buffer to mix the signal for the new note
-    //     into the buffer at the correct time.
+    //     Create a signal for the note by converting its pitch a wavelength.
+    //
+    //     Call mix() on your audio buffer to mix the signal into the buffer
+    //     at the correct time and for the correct duration.
     //  
     //     Methods that will help you:
+    //  
     //     - Utils.convertPitchToWavelength()
     //     - Utils.covertSecondsToSamples()
     //     - note.get_______()
     //
-    // Call normalize() on your audio buffer. (This prevents the mixed audio
-    // from being too loud.)
+    // Call normalize() on your audio buffer. This prevents the mixed audio
+    // from being too loud and clipping.
     //
     // Return the audio buffer.
 ```

@@ -19,7 +19,7 @@ public class Utils {
      * Converts a time in seconds to a time expressed in samples (at AudioBuffer.SAMPLE_RATE samples
      * per second).
      */
-    public static int covertSecondsToSamples(double seconds) {
+    public static int convertSecondsToSamples(double seconds) {
         return (int) Math.round(seconds * AudioBuffer.SAMPLE_RATE);
     }
 }

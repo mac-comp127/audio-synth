@@ -13,7 +13,7 @@ class UtilsTest {
     }
 
     @Test
-    void covertSecondsToSamples() {
+    void convertSecondsToSamples() {
         assertEquals(AudioBuffer.SAMPLE_RATE, Utils.convertSecondsToSamples(1));
         assertEquals(0, Utils.convertSecondsToSamples(0));
     }

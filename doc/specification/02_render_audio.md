@@ -21,7 +21,7 @@ public AudioBuffer renderAudio()
     //
     // Create a new AudioBuffer. Compute the size of the buffer using:
     //
-    //     Utils.covertSecondsToSamples(getDuration())
+    //     Utils.convertSecondsToSamples(getDuration())
     //
     // For each note:
     //
@@ -33,7 +33,7 @@ public AudioBuffer renderAudio()
     //     Methods that will help you:
     //  
     //     - Utils.convertPitchToWavelength()
-    //     - Utils.covertSecondsToSamples()
+    //     - Utils.convertSecondsToSamples()
     //     - note.get_______()
     //
     // Call normalize() on your audio buffer. This prevents the mixed audio

@@ -24,4 +24,13 @@ public class Song {
     public List<Note> getNotes() {
         return Collections.unmodifiableList(notes);
     }
+
+    /**
+     * Returns maximum end time of any note in the song. Returns 0 if the song is empty.
+     */
+    public double getDuration() {
+        return notes.stream()
+            .mapToDouble(Note::getEndTime)
+            .max().orElse(0);
+    }
 }

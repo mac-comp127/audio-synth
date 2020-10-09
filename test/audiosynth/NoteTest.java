@@ -1,7 +1,6 @@
 package audiosynth;
 
 import audiosynth.waveform.SineWave;
-import audiosynth.waveform.SquareWave;
 import audiosynth.waveform.Waveform;
 import org.junit.jupiter.api.Test;
 

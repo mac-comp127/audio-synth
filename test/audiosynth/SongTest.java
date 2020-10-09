@@ -24,4 +24,15 @@ class SongTest {
         assertThrows(UnsupportedOperationException.class, () ->
             song.getNotes().add(new Note(waveform0, 0, 0, 0)));
     }
+
+    @Test
+    void getDuration() {
+        assertEquals(0, song.getDuration());
+        song.addNote(new Note(waveform0, 5, 4.5, 1.5));
+        assertEquals(6, song.getDuration());
+        song.addNote(new Note(waveform1, 7, 10, 2));
+        assertEquals(12, song.getDuration());
+        song.addNote(new Note(waveform0, 7, 9, 2.5));
+        assertEquals(12, song.getDuration());
+    }
 }

@@ -59,7 +59,7 @@ In computer science, the word “buffer” means “place where we can temporar
 
 Unlike the waveforms, which the code computes using mathematical formulas, an [`AudioBuffer`](src/audiosynth/AudioBuffer.java) contains **sampled audio:** arbitrary sound data expressed as specific numbers, in this case an array of floats. Each number in the array represents the amplitude at one moment in time, and the different array indices represent time steps of 1/48000th of a second. This is called **discrete sampling**.
 
-This kind of sampled audio is how modern computers’ sound chips represent sound data. To play a signal as sound through your computer’s speakers, you must covert it to sample data:
+This kind of sampled audio is how modern computers’ sound chips represent sound data. To play a signal as sound through your computer’s speakers, you must convert it to sample data:
 
 [<img src="doc/images/audiobuffer.png" width="158" height="246">](doc/images/audiobuffer.pdf)
 

@@ -172,7 +172,7 @@ public class AudioBuffer {
      *
      * See AudioBuffer.play(PlayingCallback).
      */
-    public static interface PlayingCallback {
+    public interface PlayingCallback {
         /**
          * Called periodically during audio playback.
          *

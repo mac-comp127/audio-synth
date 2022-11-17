@@ -25,10 +25,12 @@ class IntegrationTest {
     }
 
     private static final String tinySongCSV =
-        "saw,    38, 0.00, 0.04\n" +
-        "square, 54, 0.01, 0.04\n" +
-        "tri,    57, 0.02, 0.04\n" +
-        "sine,   61, 0.03, 0.04";
+        """
+        saw,    38, 0.00, 0.04
+        square, 54, 0.01, 0.04
+        tri,    57, 0.02, 0.04
+        sine,   61, 0.03, 0.04
+        """;
 
     private static final float[] tinySongRendered = new float[] {
         -0.258f, -0.257f, -0.256f, -0.255f, -0.254f, -0.254f, -0.253f, -0.252f, -0.251f, -0.250f, -0.250f, -0.249f, -0.248f, -0.247f, -0.247f, -0.246f,

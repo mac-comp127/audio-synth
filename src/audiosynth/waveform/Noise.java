@@ -5,7 +5,7 @@ import audiosynth.Signal;
 import java.util.Random;
 
 public class Noise implements Waveform {
-    private Random rand = new Random();
+    private final Random rand = new Random();
 
     @Override
     public Signal createSignal(double pitch) {

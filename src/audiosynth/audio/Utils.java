@@ -1,4 +1,4 @@
-package audiosynth;
+package audiosynth.audio;
 
 /**
  * Utilities to do audio-related unit conversions.

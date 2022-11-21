@@ -1,6 +1,6 @@
-package audiosynth;
+package audiosynth.song;
 
-import audiosynth.waveform.Waveform;
+import audiosynth.audio.Waveform;
 
 import java.util.Objects;
 

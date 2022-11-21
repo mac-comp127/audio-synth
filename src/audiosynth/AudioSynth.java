@@ -1,8 +1,11 @@
 package audiosynth;
 
-import audiosynth.waveform.SineWave;
-import audiosynth.waveform.SquareWave;
-import audiosynth.waveform.TriangularWave;
+import audiosynth.audio.SineWave;
+import audiosynth.audio.SquareWave;
+import audiosynth.audio.TriangularWave;
+import audiosynth.song.Note;
+import audiosynth.song.Song;
+import audiosynth.song.SongReader;
 
 /**
  * Generates and visualizes music.
@@ -18,9 +21,9 @@ public class AudioSynth {
 
         // Longer test song
 
-        // String fileName = "kondo.csv";
-        // Song song = new SongReader().readSong(fileName);
-
-        // song.renderAudio().play();
+//        String fileName = "kondo.csv";
+//        Song song = new SongReader().readSong(fileName);
+//
+//        song.renderAudio().play();
     }
 }

@@ -1,6 +1,10 @@
-package audiosynth;
+package audiosynth.audio;
 
-import javax.sound.sampled.*;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineEvent;
+import javax.sound.sampled.LineUnavailableException;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 

@@ -1,6 +1,4 @@
-package audiosynth.waveform;
-
-import audiosynth.Signal;
+package audiosynth.audio;
 
 public class SquareWave implements Waveform {
     @Override

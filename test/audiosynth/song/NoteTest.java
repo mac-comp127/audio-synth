@@ -1,8 +1,9 @@
-package audiosynth;
+package audiosynth.song;
 
-import audiosynth.waveform.SineWave;
-import audiosynth.waveform.Waveform;
 import org.junit.jupiter.api.Test;
+
+import audiosynth.audio.SineWave;
+import audiosynth.audio.Waveform;
 
 import static org.junit.jupiter.api.Assertions.*;
 

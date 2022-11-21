@@ -1,6 +1,4 @@
-package audiosynth.waveform;
-
-import audiosynth.Signal;
+package audiosynth.audio;
 
 /**
  * A general shape of sound wave, independent of amplitude and frequency. A waveform acts like an

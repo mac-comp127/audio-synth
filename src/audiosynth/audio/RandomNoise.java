@@ -1,10 +1,8 @@
-package audiosynth.waveform;
-
-import audiosynth.Signal;
+package audiosynth.audio;
 
 import java.util.Random;
 
-public class Noise implements Waveform {
+public class RandomNoise implements Waveform {
     private final Random rand = new Random();
 
     @Override

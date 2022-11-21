@@ -1,4 +1,4 @@
-package audiosynth;
+package audiosynth.audio;
 
 import org.junit.jupiter.api.Test;
 

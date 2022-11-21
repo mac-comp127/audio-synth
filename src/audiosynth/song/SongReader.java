@@ -1,12 +1,17 @@
-package audiosynth;
-
-import audiosynth.waveform.*;
+package audiosynth.song;
 
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Scanner;
+
+import audiosynth.audio.RandomNoise;
+import audiosynth.audio.SawtoothWave;
+import audiosynth.audio.SineWave;
+import audiosynth.audio.SquareWave;
+import audiosynth.audio.TriangularWave;
+import audiosynth.audio.Waveform;
 
 /**
  * A utility for reading Songs from text files. The text file consists of the following four values
@@ -30,14 +35,14 @@ public class SongReader {
      * - "tri"    → TriangularWave
      * - "square" → SquareWave
      * - "saw"    → SawtoothWave
-     * - "noise"  → Noise
+     * - "noise"  → RandomNoise
      */
     public SongReader() {
         waveforms.put("sine", new SineWave());
         waveforms.put("tri", new TriangularWave());
         waveforms.put("square", new SquareWave());
         waveforms.put("saw", new SawtoothWave());
-        waveforms.put("noise", new Noise());
+        waveforms.put("noise", new RandomNoise());
     }
 
     /**

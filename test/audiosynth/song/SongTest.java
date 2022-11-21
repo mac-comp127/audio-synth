@@ -1,9 +1,11 @@
-package audiosynth;
+package audiosynth.song;
 
-import audiosynth.waveform.Waveform;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+
+import audiosynth.audio.AudioBuffer;
+import audiosynth.audio.Waveform;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,4 +1,4 @@
-package audiosynth;
+package audiosynth.song;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * A collection of notes that (perhaps) make music together.
- * A newly created song starts out empty — no notes.
+ * A newly created song starts out empty — no notes.
  */
 public class Song {
     private final List<Note> notes = new ArrayList<>();

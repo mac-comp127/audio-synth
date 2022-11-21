@@ -1,4 +1,4 @@
-package audiosynth;
+package audiosynth.audio;
 
 /**
  * A scalar value that varies over time. If this signal represents a sound wave, then the wave has a

@@ -1,4 +1,4 @@
-package audiosynth.song;
+package audiosynth.model;
 
 import java.io.InputStream;
 import java.util.HashMap;

@@ -3,9 +3,9 @@ package audiosynth;
 import audiosynth.audio.SineWave;
 import audiosynth.audio.SquareWave;
 import audiosynth.audio.TriangularWave;
-import audiosynth.song.Note;
-import audiosynth.song.Song;
-import audiosynth.song.SongReader;
+import audiosynth.model.Note;
+import audiosynth.model.Song;
+import audiosynth.model.SongReader;
 
 /**
  * Generates and visualizes music.

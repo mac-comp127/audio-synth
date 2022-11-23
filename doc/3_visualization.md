@@ -4,7 +4,7 @@ Your goal: create a class to visualize songs on the screen.
 
 ---
 
-Note that the design of the classes in the `song` package — `Song`, `Note`, and `SongWriter` — does
+Note that the design of the classes in the `model` package — `Song`, `Note`, and `SongWriter` — does
 not make any assumptions about how the code is going to present the notes of a song. In the previous
 part of the homework, you transformed that abstract structure into sound; in this step, you will
 transform it into graphics.
@@ -31,8 +31,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import audiosynth.audio.Waveform;
-import audiosynth.song.Note;
-import audiosynth.song.Song;
+import audiosynth.model.Note;
+import audiosynth.model.Song;
 import edu.macalester.graphics.GraphicsGroup;
 import edu.macalester.graphics.Rectangle;
 

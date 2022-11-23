@@ -68,7 +68,7 @@ This kind of sampled audio is how modern computers’ sound chips represent soun
 
 The code in `AudioBuffer` is all correct, and the class is _almost_ complete; you will add just one method to it.
 
-### The `song` package
+### The `model` package
 
 In the `audiosynth.audio` package, you will find these three classes:
 

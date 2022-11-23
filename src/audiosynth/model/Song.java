@@ -1,4 +1,4 @@
-package audiosynth.song;
+package audiosynth.model;
 
 import java.util.ArrayList;
 import java.util.Collections;

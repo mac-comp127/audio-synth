@@ -1,4 +1,4 @@
-# Part 1: Render songs as audio
+# Part 2: Render songs as audio
 
 Your goal: create code to render your song model to an `AudioBuffer` so you can hear it.
 

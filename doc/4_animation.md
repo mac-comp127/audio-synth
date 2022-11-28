@@ -58,7 +58,7 @@ Remember that `SongVisualization` is a `GraphicsGroup`. You want to update the x
 graphics group.
 
 Your `setTime` method takes a parameter that says how much time has passed. You will need to do a
-unit converion on that parameter, and negate it so that it moves left.
+unit conversion on that parameter, and negate it so that it moves left.
 </details>
 </details>
 
@@ -86,7 +86,7 @@ upper left!
 
 To fix this, a more robust solution would be to create a _second_ `GraphicsGroup` named `nodeGroup`
 inside `SongVisualizer`, and add all the notes to _that_ group. Then the inner group can move while
-the `SongVisualizer`’s position stays fixed. For a nice little challenge, try that!
+the `SongVisualizer`’s position stays fixed. For a nice little challenge, try that.
 </details>
 
 <br>

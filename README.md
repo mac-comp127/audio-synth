@@ -11,8 +11,8 @@ This homework serves several learning goals:
     - In Breakout, you asked you to figure out a small class design on your own.
     - In _this_ assignment, we give you a _large_ class design.
     - For your final project, you will have to figure out a large class design on your own.
-- This assignment gives you a little more **practice with arrays and maps**.
-- Most importantly, the results are **fun**!
+- This assignment gives you a little more **practice with arrays**.
+- Most importantly, the results are **fun** (especially if you do the bonus part about note highlighting)!
 
 
 ## Terminology and starting point
@@ -23,8 +23,8 @@ We have given you some starter code that provides the following building blocks 
 
 In the `audiosynth.audio` package, you will find these three types, plus some supporting code:
 
-- `Signal`: a sound wave with a specific shape, amplitude, and frequency.
-- `Waveform`: the _shape_ of a sound wave, independent of amplitude and frequency. You can ask a `Waveform` to generate a `Signal` at a specific frequency.
+- `Signal`: a sound wave, represented as a function that maps time to wave amplitude. 
+- `Waveform`: the _shape_ of a sound wave, independent of amplitude and frequency. A `Waveform` is like a musical instrument: it can produce many different notes, but they all share a particular sound. You can ask a `Waveform` to generate a `Signal` at a specific frequency.
 - `AudioBuffer`: an arbitrary sound that is made of many individual amplitude measurements. An `AudioBuffer` could potentially contain many different waveforms at different times. You can play an `AudioBuffer` to your computer’s speakers.
 
 Here a more detailed explanation of each of these concepts:
@@ -48,19 +48,19 @@ A “waveform” is the general _shape_ of a wave, independent of frequency, amp
 - “sine wave” is a waveform, while
 - “sine wave with amplitude 2 and wavelength 3” is a signal.
 
-In this project, we given you a [`Waveform`](src/audiosynth/audio/Waveform.java) interface with [several different implementations](src/audiosynth/audio/). Each class that implements `Waveform` can generate signals for different wavelengths (and thus for different musical pitches):
+In this project, we give you a [`Waveform`](src/audiosynth/audio/Waveform.java) interface with [several different implementations](src/audiosynth/audio/). Each class that implements `Waveform` can generate signals for different wavelengths (and thus for different musical pitches):
 
 [<img src="doc/images/waveform.png" width="693" height="610">](doc/images/waveform.pdf)
 
 These different `Waveform` implementations all compute the signal using a formula in a lambda expression, much like the graphing calculator activity.
 
-These implementations are all already complete and correct. Note how small a useful class can be!
+These implementations are all already complete and correct. Note how **small** a class can be and still be useful!
 
 #### AudioBuffer
 
 In computer science, the word “buffer” means “place where we can temporarily store a bunch of data while we are working with it.” In this case, the buffer stores sound data.
 
-Unlike the waveforms, which the code computes using mathematical formulas, an [`AudioBuffer`](src/audiosynth/AudioBuffer.java) contains **sampled audio:** arbitrary sound data expressed as specific numbers, in this case an array of floats. Each number in the array represents the amplitude at one moment in time, and the different array indices represent time steps of 1/48000th of a second. This is called **discrete sampling**.
+Unlike the waveforms, which the code computes using mathematical formulas, an [`AudioBuffer`](src/audiosynth/AudioBuffer.java) contains **sampled audio:** arbitrary sound data expressed as a sequence of specific numbers, in this case an array of floats. Each number in the array represents the amplitude at one moment in time, and the different array indices represent time steps of 1/48000th of a second. This is called **discrete sampling**.
 
 This kind of sampled audio is how modern computers’ sound chips represent sound data. To play a signal as sound through your computer’s speakers, you must convert it to sample data:
 

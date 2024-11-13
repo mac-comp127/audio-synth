@@ -2,7 +2,7 @@
 
 Your goal: modify `AudioBuffer` so that you can mix in slices of different signals. You will use this to combine many notes into one song.
 
-In this context, “mix” means ”add together different audio signals.” Here “add” means simple numerical addition, nothing more! When add together audio aignals, your brain will generally perceive this as multiple sounds playing at the same time. Adding together audio signals for notes thus creates harmony!
+In this context, “mix” means ”add together different audio signals.” Here “add” means simple numerical addition, nothing more! When you add together audio aignals, your brain will generally perceive this as multiple sounds playing at the same time. Adding together audio signals for musical notes thus creates harmony!
 
 
 ## New `AudioBuffer` method
